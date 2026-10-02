@@ -18,7 +18,6 @@ function exibirMenu(){
     console.log("\n=== MENU ===");
     console.log("1 - Cadastrar Aluno");
     console.log("2 - Listar Alunos");
-    console.log("3 - Buscar Aluno por nome");
     console.log("0 - Sair");
 
     opcao = Number(prompt("Escolha uma opção: "));
@@ -32,10 +31,6 @@ function exibirMenu(){
                 listarAlunos();
             break;
 
-            case 3:
-                buscarPorNome();
-            break;
-
             case 0:
             console.log("Programa encerrado.");
             break;
@@ -44,8 +39,10 @@ function exibirMenu(){
             console.log("Opção inválida.");
         }
     } while (opcao !== 0);  
+
 }
   
+
 const alunos = [];
 
 function cadastrarAluno(){
@@ -58,19 +55,19 @@ function cadastrarAluno(){
     const novoAluno = new Aluno(nome, idade, curso, nota1, nota2);
     alunos.push(novoAluno);
     
-    console.log("\n Aluno cadastrado com sucesso!");
+    console.log("Aluno cadastrado com sucesso!");
 }
 
 function listarAlunos(){
     if (alunos.length === 0){
-        console.log("\n Não há nenhum aluno cadastrado.");
+        console.log("Não há nenhum aluno cadastrado.");
     } else {
-        console.log("\n === Alunos cadastrados ===");
+        console.log("=== Alunos cadastrados ===");
 
         alunos.forEach((aluno, index) => {
-            const media = (aluno.nota1 + aluno.nota2) / 2;
+            const media = aluno.nota1 + aluno.nota2 / 2;
            
-            console.log(`\n ${index + 1}. ${aluno.nome}`);
+            console.log(`${index + 1} ${aluno.nome}`);
             console.log(`Idade: ${aluno.idade}`);
             console.log(`Curso: ${aluno.curso}`);
             console.log(`Média: ${media.toFixed(1)}`);
@@ -79,36 +76,4 @@ function listarAlunos(){
 
 }
 
-function buscarPorNome(){
-    if (alunos.length === 0){
-        console.log("\n Não há nenhum aluno cadastrado.");
-
-        return;
-    }
-
-    const nomeBusca = prompt("Informe o nome do aluno para pesquisar: ").toLowerCase();
-
-    const encontrados = alunos.filter(aluno => 
-        aluno.nome.toLowerCase().includes(nomeBusca));
-
-    if (encontrados.length === 0){
-        console.log("Nenhum aluno com esse nome foi encontrado.");
-    } else {
-        console.log(`=== Resultado da Pesquisa (${encontrados.length}) ===`);
-
-        encontrados.forEach((aluno, index) => {
-            const media = (aluno.nota1 + aluno.nota2) / 2;
-
-            console.log(`\n ${index + 1}. ${aluno.nome}`);
-            console.log(`Idade: ${aluno.idade}`);
-            console.log(`Curso: ${aluno.curso}`);
-            console.log(`Média: ${media.toFixed(1)}`);
-        });
-    }
-}
-
-exibirMenu();
-
-function mostrarAprovados(){
-    
-}
+exibirMenu()

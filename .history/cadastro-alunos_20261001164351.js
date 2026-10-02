@@ -18,7 +18,7 @@ function exibirMenu(){
     console.log("\n=== MENU ===");
     console.log("1 - Cadastrar Aluno");
     console.log("2 - Listar Alunos");
-    console.log("3 - Buscar Aluno por nome");
+    console.log()
     console.log("0 - Sair");
 
     opcao = Number(prompt("Escolha uma opção: "));
@@ -108,7 +108,3 @@ function buscarPorNome(){
 }
 
 exibirMenu();
-
-function mostrarAprovados(){
-    
-}

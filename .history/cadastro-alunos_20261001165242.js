@@ -109,6 +109,3 @@ function buscarPorNome(){
 
 exibirMenu();
 
-function mostrarAprovados(){
-    
-}

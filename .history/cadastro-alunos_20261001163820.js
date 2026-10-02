@@ -18,7 +18,6 @@ function exibirMenu(){
     console.log("\n=== MENU ===");
     console.log("1 - Cadastrar Aluno");
     console.log("2 - Listar Alunos");
-    console.log("3 - Buscar Aluno por nome");
     console.log("0 - Sair");
 
     opcao = Number(prompt("Escolha uma opção: "));
@@ -33,7 +32,7 @@ function exibirMenu(){
             break;
 
             case 3:
-                buscarPorNome();
+
             break;
 
             case 0:
@@ -68,9 +67,9 @@ function listarAlunos(){
         console.log("\n === Alunos cadastrados ===");
 
         alunos.forEach((aluno, index) => {
-            const media = (aluno.nota1 + aluno.nota2) / 2;
+            const media = aluno.nota1 + aluno.nota2 / 2;
            
-            console.log(`\n ${index + 1}. ${aluno.nome}`);
+            console.log(`${index + 1}. ${aluno.nome}`);
             console.log(`Idade: ${aluno.idade}`);
             console.log(`Curso: ${aluno.curso}`);
             console.log(`Média: ${media.toFixed(1)}`);
@@ -94,21 +93,8 @@ function buscarPorNome(){
     if (encontrados.length === 0){
         console.log("Nenhum aluno com esse nome foi encontrado.");
     } else {
-        console.log(`=== Resultado da Pesquisa (${encontrados.length}) ===`);
-
-        encontrados.forEach((aluno, index) => {
-            const media = (aluno.nota1 + aluno.nota2) / 2;
-
-            console.log(`\n ${index + 1}. ${aluno.nome}`);
-            console.log(`Idade: ${aluno.idade}`);
-            console.log(`Curso: ${aluno.curso}`);
-            console.log(`Média: ${media.toFixed(1)}`);
-        });
+        
     }
 }
 
 exibirMenu();
-
-function mostrarAprovados(){
-    
-}
